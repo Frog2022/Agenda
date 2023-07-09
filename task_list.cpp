@@ -172,18 +172,18 @@ vector<pair<int, Other>>::iterator TaskList::FindTask(string name){
 	}
 	return task_list_.end();
 }
-void TaskList::ShowTask(vector<pair<int, Other>>::iterator it) const{
-	// TODO ShowTask
+void TaskList::ShowTask(vector<pair<int, Other>>::iterator it) const {
 	string showbegintime = to_string_t(it->second.begin_time);
 	string showremindtime = to_string_t(it->second.remind_time);
-	std::cout << "----------------------------------------------------------------------------------------------------" << endl;
-	std::cout << std::setw(14) << it->first << '\t'
-		<< std::setw(14) << it->second.name << '\t'
-		<< std::setw(14) << showbegintime << '\t'
-		<< it->second.priority << '\t'
-		<< std::setw(14) << it->second.type << '\t'
-		<< std::setw(14) << showremindtime << endl;;
-	std::cout << "----------------------------------------------------------------------------------------------------" << endl;
+	string sPriority = get_priority_string(it->second.priority);
+	std::cout << "----------------------------------------------------------------" << endl;
+			std::cout << std::setw(14) << "ID: " << it->first << endl
+				<< std::setw(14) << "Name: " << it->second.name << endl
+				<< std::setw(14) << "Begin time: " << showbegintime << endl
+				<< std::setw(14) << "Priority: " << sPriority << endl
+				<< std::setw(14) << "Type: " << it->second.type << endl
+				<< std::setw(14) << "Remind time: " << showremindtime << endl;
+			std::cout << "----------------------------------------------------------------" << endl;
 }
 void TaskList::ShowHead() const{
 	// TODO ShowHead
